@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Shipping Information</title>
+
+
+    <style type="text/css">
+
+        .wide, html {
+            background: rgb(0,0,0);
+            background: linear-gradient(to bottom, rgba(140,60,100,0.5), rgba(0,0,0,0)),url(ADD-A-BACKGROUND-IMAGE-HERE);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: block;
+        }
+
+        body, html {
+            text-align: center;
+            color: white;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+
+        form {
+            display:table;/* shrinks to fit content */
+            margin:auto;
+            line-height: 15px;
+        }
+
+        input, textarea {
+            background: rgb(250,230,230);
+            margin-bottom: 0px;
+        }
+
+        button {
+          background-color: rgb(0,100,150);
+          border-radius: 8px;
+
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          text-align: center;
+          text-decoration: none;
+          font-size: 16px;
+        }
+
+        .square {
+            background-color: rgba(0,0,0,0.5);
+            margin: 4rem;
+        }
+
+        .form-wrapper .field-list .field {
+            position: relative;
+            margin: -20px 0px 24px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="wide">
+
+        <div class="square">
+            <hr style="visibility: hidden;">
+            <h1>YOUR COMPANY NAME</h1>
+
+            <h3>SHIPPING INFORMATION</h3>
+            <p>Please input your shipping and contact information below</p>
+
+
+            <form class="fsFieldRow" id="shipping" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <br>
+                <button type="submit" id="shipping-submit" name="shippingdetailsform">Proceed to Checkout</button>
+
+            </form>
+            <br>
+        </div>
+    </div>
+
+
+</body>
+</html>

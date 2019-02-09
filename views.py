@@ -126,9 +126,8 @@ def home_view(request):
                     Phone: %s
                     Item Type: %s
                     Size: %s
-                    Artist: %s
                     Message: %s
-                """ % (quote_name, quote_email, quote_phone, quote_itemtype, quote_size, quote_artist, quote_message)
+                """ % (quote_name, quote_email, quote_phone, quote_itemtype, quote_size, quote_message)
 
 
                 try:

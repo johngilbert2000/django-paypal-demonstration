@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Purchase Preview</title>
+
+
+
+    <style type="text/css">
+
+        html {
+            min-height: 100%;
+            min-width: 100%;
+            background: rgb(40,10,5);
+
+            background: linear-gradient(to bottom, rgba(20,40,100,0.8), rgba(0,0,0,0.9)), url(
+            {% for item in item %}
+            {{ item.image.url }}
+            {% endfor %}
+
+            );
+            background-size: cover;
+            background-repeat: repeat;
+            display: inline-block;
+        }
+        .wide {
+            background: rgba(10,20,40,0.8);
+            background-repeat: repeat;
+            display: inline-block;block;
+            margin: 1rem;
+            padding: 0rem 6rem 3rem 6rem;
+        }
+        @media(max-width:600px){
+            .wide {
+                padding: 0;
+            }
+        }
+
+        body, html {
+
+            text-align: center;
+
+            color: white;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+        }
+
+        form {
+            display:table;/* shrinks to fit content */
+            margin: auto;
+
+        }
+        input, textarea {
+            background: rgb(250,230,230);
+        }
+
+        button {
+          background-color: rgb(0,100,150);
+          border-radius: 8px;
+
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          text-align: center;
+          text-decoration: none;
+          font-size: 16px;
+        }
+
+        input, textarea {
+            background: transparent;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="wide">
+        <div class="square">
+            <hr style="visibility: hidden;">
+            <h1>YOUR COMPANY NAME</h1>
+
+            <h3>PURCHASE PREVIEW</h3>
+            <p>Review the following information, and then click Buy Now to proceed.</p>
+
+            <p stye="text-align:left;">Invoice ID: {{ item_invoice }}</p>
+
+            {% for obj in item %}
+            <img src="{{ obj.image.url }}" style="object-fit:cover; height:200px; width: auto;">
+            {% endfor %}
+
+            <p>{{ item_name }} -- Price: ${{ item_amount }}</p>
+
+            <div style="background-color: transparent;">
+            {% for paypalform in pp_forms %}
+                {{ paypalform.sandbox }} <!--use .sandbox for testing, use .render to use real money on paypal-->
+            {% endfor %}
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>
