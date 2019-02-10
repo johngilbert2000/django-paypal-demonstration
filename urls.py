@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 
 
-from polidoboards.views import home_view, payment_done, payment_cancel, shipping_view, review_view
+from your_app.views import home_view, payment_done, payment_cancel, shipping_view, review_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),

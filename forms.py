@@ -47,12 +47,12 @@ class GetQuoteForm(forms.ModelForm):
     message.widget.attrs.update({'placeholder': 'Type any notes here...'})
 
     image.label = "Upload Image:"
-    board_type.label = "Select Board Type:"
+    item_type.label = "Select Item Type:"
     size.label = "Select Size:"
 
     class Meta:
         model = QuoteRequest
-        fields = ('name', 'email', 'phone', 'image', 'board_type', 'size', 'message',)
+        fields = ('name', 'email', 'phone', 'image', 'item_type', 'size', 'message',)
 
 
 # The Shipping Details form (used in shipping_view in forms.py)

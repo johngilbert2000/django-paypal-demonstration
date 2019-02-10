@@ -27,24 +27,6 @@ def home_view(request):
     a list of Company Members, a list of Store Items, and a list of Gallery Items"""
 
 
-    # The Singleton Model (see singleton.py and models.py) was used in this project to store the Site Description as an object in the database.
-    # This allows only one Site Description object, which gets overwritten each time a new object is created using the Site Description model.
-    # As it is possible for 0 Site Description items to exist, a try block is used to set a default site description.
-    try:
-        obj = SiteDescription.objects.all().first()
-        description1 = obj.who_we_are
-        description2 = obj.what_we_do
-        facebook_url = obj.facebook
-        twitter_url = obj.twitter
-        instagram_url = obj.instagram
-    except:
-        description1 = '[ Area Under Construction: Please Come Back Later ]'
-        description2 = '[ Area Under Construction: Please Come Back Later ]'
-        facebook_url = 'https://www.facebook.com/your-default-facebook-link/'
-        twitter_url = 'https://twitter.com/your-default-twitter-link'
-        instagram_url = 'https://www.instagram.com/your-default-instagram-link/'
-
-
     # Initiates the two forms
     form = ContactForm(request.POST or None)
     getquote = GetQuoteForm(request.POST or None, request.FILES or None)
@@ -108,7 +90,6 @@ def home_view(request):
 
                 quote_itemtype = getquote.cleaned_data['item_type']
                 quote_size = getquote.cleaned_data['size']
-                quote_artist = getquote.cleaned_data['artist']
                 quote_message = getquote.cleaned_data['message']
                 getquote.save()
 
@@ -163,6 +144,25 @@ def home_view(request):
 
             # After the purchase button is pressed, this redirects the user to a page to collect their shipping information
             return redirect('shipping')
+
+
+
+    # The Singleton Model (see singleton.py at https://gist.github.com/senko/5028413 and models.py) was used in this project to store the Site Description as an object in the database.
+    # This allows only one Site Description object, which gets overwritten each time a new object is created using the Site Description model.
+    # As it is possible for 0 Site Description items to exist, a try block is used to set a default site description.
+    try:
+        obj = SiteDescription.objects.all().first()
+        description1 = obj.who_we_are
+        description2 = obj.what_we_do
+        facebook_url = obj.facebook
+        twitter_url = obj.twitter
+        instagram_url = obj.instagram
+    except:
+        description1 = '[ Area Under Construction: Please Come Back Later ]'
+        description2 = '[ Area Under Construction: Please Come Back Later ]'
+        facebook_url = 'https://www.facebook.com/your-default-facebook-link/'
+        twitter_url = 'https://twitter.com/your-default-twitter-link'
+        instagram_url = 'https://www.instagram.com/your-default-instagram-link/'
 
 
     my_context = {
