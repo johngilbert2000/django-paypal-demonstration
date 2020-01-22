@@ -3,7 +3,7 @@ This is sample code from a django project that used django-paypal. The sample co
 
 In this implementation, after a user selects an item to purchase and fills out a form that saves shipping information, the selected item's information (such as item name, price, invoice, etc.) is pulled from an object stored in the database and from user session variables, and then a paypal Buy Now button is created and displayed in review.html using this information with django-paypal. The Buy Now button is then used to redirect a user to Paypal's website, where the user can complete a transaction for the item selected. Upon completing a successful transaction, the database is then updated to indicate which item was purchased alongside the shipping information of the customer. Additionally, the quantity of that store item left in stock is also updated in the database to reflect the transaction.
 
-For reasons unrelated to the website, this site was never actually deployed. However you can see part of video demonstration for it here:
+**Video**: For reasons unrelated to the website, the following site was never put into production and deployed. However you can see part of video demonstration for it here:
 https://www.youtube.com/watch?v=MhWF6bhqbDQ&feature=youtu.be&fbclid=IwAR0BjY4-6JoSAKF87hJKyRAy_0eqMpzpSh2DKINUoBEpOI0cyAmGJbe8xnA
 
 Versions Used:
